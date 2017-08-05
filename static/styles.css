@@ -12,6 +12,7 @@ a {text-decoration: none; color:#FFFFCC; font-size: .75em;}
     border-radius: 25px; padding: 5px; margin: 5px; border-color: #999999; background-color: #333333 }
 .header         {left:50%; text-align: center;}
 .name {width:50%;display: inline-block; float: left;}
+.rname {width:100%,display: inline-block; float: left;}
 .description {}
 .price {text-align: right; width:50%; float: right; }
 .editdeletepane{}

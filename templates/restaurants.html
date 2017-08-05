@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel=stylesheet type=text/css href="{{ url_for('static', filename='styles.css') }}">
+    <title>Restaurants</title>
+</head>
+<body>
+	<div class = 'pane'>
+        <div class = 'header'>
+            <h1>All Restaurants</h1>
+        </div>
+
+        <a href = '{{url_for('newRestaurant') }}'>Create New Restaurant</a>
+        <br>
+
+
+        <div class = 'flash'>
+                      {% with messages = get_flashed_messages() %}
+              {% if messages %}
+
+                <ul>
+                {% for message in messages %}
+                    <li> <strong> {{ message }} </strong> </li>
+                {% endfor %}
+                </ul>
+                {% endif %}
+            {% endwith %}
+
+        </div>
+
+
+            {% for r in restaurants %}
+        <br>
+        <div class = 'nameAndPrice'>
+            <a href="{{ url_for('restaurantMenu',restaurant_id=r.id) }}" class = 'rname'><h2>{{r.name}}</h2></a>
+
+        </div>
+
+        <div class = "editdeletepane">
+            <a href='{{ url_for('editRestaurant',restaurant_id = r.id) }}' >Edit</a>
+            <a href='{{ url_for('deleteRestaurant', restaurant_id = r.id) }}' >Delete</a>
+        </div>
+            {% endfor %}
+    </div>
+</div>
+	</body>
+
+</html>
